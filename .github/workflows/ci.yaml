@@ -1,0 +1,14 @@
+name: list changed files
+on:
+  push
+jobs:
+  list_changed_files:
+    name: list changed files job
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: list changed files step
+      - run: git diff --name-only HEAD HEAD^
